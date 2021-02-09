@@ -40,10 +40,22 @@ def find_longer_words(word_list, base_word)
   # use #reduce to iterate through each item of the word_list (an array)
   # return an array of words that is longer than the base_word (a string)
   # hint: use a new array or an empty array as the initial accumulator value
+  array_of_words = Array.new;
+  word_list.reduce do | accumulator, word | 
+    if word.length > base_word.length
+      array_of_words << word
+    end
+  end
+  array_of_words
 end
 
 def find_word_lengths(word_list)
   # use #reduce to iterate through each item of the word_list (an array)
   # return a hash with each word as the key and its length as the value
   # hint: use a new hash or an empty hash as the initial accumulator value
+
+  word_list.reduce(Hash.new(0)) do |accumulator, word|
+    accumulator[word] = word.length
+    accumulator
+  end
 end
